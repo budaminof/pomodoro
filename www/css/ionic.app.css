@@ -9731,5 +9731,8 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.custom-icon, .bar.bar-stable .title {
+  color: #065e1e; }
+
 .work-timer {
   text-align: center; }

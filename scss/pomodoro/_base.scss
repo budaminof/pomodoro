@@ -1,3 +1,5 @@
-.work-timer{
-  text-align: center;
+@import "pomodoro/variables.scss";
+
+.custom-icon, .bar.bar-stable .title {
+  color: $icons;
 }
