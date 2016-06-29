@@ -1,12 +1,16 @@
 <ion-view title="pomodoro" id="page4" class=" ">
-    <ion-content padding="true" class="has-header">
-        <h3 id="pomodoro-heading2" style="color:#000000;" class=" ">What are you working on?</h3>
-        <form id="pomodoro-form2" class="list ">
-            <label class="item item-input " id="pomodoro-input2">
-                <span class="input-label">pomodoro name</span>
-                <input type="text" placeholder="">
-            </label>
-        </form>
-        <a ui-sref="tabsController.pomoforoTimer" id="pomodoro-button1" class=" button button-positive  button-block ">get started</a>
-    </ion-content>
+  <ion-content padding="true" class="has-header">
+    <h4>
+      What are you working on?
+    </h4>
+    <form novalidate ng-submit="vm.form.submitName()">
+    <input type="text" placeholder="Pomodoro Name" ng-model="vm.form.name" required>
+    <button type="submit" class="button button-outline button-balanced button-full">
+    pomdoro me
+  </button>
+</form>
+
+
+<!-- <a ui-sref="tabsController.pomoforoTimer" id="pomodoro-button1" class=" button button-positive  button-block ">get started</a> -->
+</ion-content>
 </ion-view>
