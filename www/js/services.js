@@ -9,7 +9,7 @@ angular.module('app.services', [])
   }
 
   function pomodoroName (name){
-     return _currentPomodoro = name;
+    return _currentPomodoro = name;
   }
 
   function getPomodoroName (){

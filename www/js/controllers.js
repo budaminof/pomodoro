@@ -8,11 +8,10 @@ angular.module('app.controllers', [])
   var vm = this;
   vm.form = {};
   vm.form.submitName = submitName;
-  console.log("controller is working POMODORO");
 
 
   function submitName (){
-    pomodoroFactory.pomodoroName(name);
+    pomodoroFactory.pomodoroName(vm.form.name);
     $state.go("tabsController.pomoforoTimer");
     vm.form = {};
     return
@@ -32,18 +31,34 @@ angular.module('app.controllers', [])
       $interval.cancel(interval);
       console.log("vibrating!!");
 
-      $ionicPlatform.ready(function() {
-        $cordovaVibration.vibrate(100);
-      });
+      // $ionicPlatform.ready(function() {
+      //   $cordovaVibration.vibrate(100);
+      // });
 
       vm.time = 0;
-      $state.go('break-time', {}, {reload: true});
+      $state.go('tabsController.pomodoroBreak', {}, {reload: true});
     }
   },1000)
-
 
 })
 
 .controller('pomodoroBreakCtrl', function($scope, pomodoroFactory, $state, $interval, $cordovaVibration, $ionicPlatform) {
+  var vm = this;
+  vm.time = 0;
+
+  var interval = $interval(function () {
+    vm.time++;
+    if(vm.time === 5) {
+      $interval.cancel(interval);
+      console.log("vibrating!!");
+
+      // $ionicPlatform.ready(function() {
+      //   $cordovaVibration.vibrate(100);
+      // });
+
+      vm.time = 0;
+      $state.go("tabsController.pomodoro", {}, {reload: true});
+    }
+  },1000)
 
 })
