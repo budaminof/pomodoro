@@ -28,10 +28,10 @@ angular.module('app.controllers', [])
     vm.time++;
     if(vm.time === 5) {
       $interval.cancel(interval);
-      console.log("vibrating!!");
-      // $ionicPlatform.ready(function() {
-      //   $cordovaVibration.vibrate(100);
-      // });
+      moving();
+      $ionicPlatform.ready(function() {
+        $cordovaVibration.vibrate(100);
+      });
       vm.time = 0;
       // $state.go('tabsController.pomodoroBreak', {}, {reload: true});
     }
@@ -50,6 +50,24 @@ angular.module('app.controllers', [])
         });
       }, false);
 
+    setTimeout(function (){
+      nextStep();
+    }, 1000)
+  }
+
+  function nextStep () {
+    document.addEventListener("deviceready", function () {
+        $cordovaDeviceMotion.getCurrentAcceleration().then(function(res) {
+          vm.test = "*************************************";
+          vm.a = res.x;
+          vm.b = res.y;
+          vm.c = res.z;
+          vm.foo = res.timestamp;
+        }, function(err) {
+          console.log(err);
+          // An error occurred. Show a message to the user
+        });
+      }, false);
   }
 
 
@@ -63,8 +81,6 @@ angular.module('app.controllers', [])
     vm.time++;
     if(vm.time === 3) {
       $interval.cancel(interval);
-      console.log("vibrating!!");
-
       // $ionicPlatform.ready(function() {
       //   $cordovaVibration.vibrate(100);
       // });

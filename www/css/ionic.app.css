@@ -9736,3 +9736,6 @@ a.button {
 
 .work-timer {
   text-align: center; }
+
+.pomodoro-name button {
+  top: 40px !important; }
