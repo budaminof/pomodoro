@@ -46,7 +46,6 @@ angular.module('app.controllers', [])
           vm.timeStamp = result.timestamp;
         }, function(err) {
           console.log(err);
-          // An error occurred. Show a message to the user
         });
       }, false);
 
@@ -65,7 +64,6 @@ angular.module('app.controllers', [])
           vm.foo = res.timestamp;
         }, function(err) {
           console.log(err);
-          // An error occurred. Show a message to the user
         });
       }, false);
   }
