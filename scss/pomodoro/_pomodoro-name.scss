@@ -22,6 +22,12 @@
   }
   .steps-img {
     margin-left: 210px;
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
   }
   .arrow-up-img {
     height: 50px;

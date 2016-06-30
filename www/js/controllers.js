@@ -19,6 +19,7 @@ angular.module('app.controllers', [])
 })
 
 .controller('pomoforoTimerCtrl', function($scope, pomodoroFactory, $state, $interval, $cordovaVibration, $ionicPlatform, $cordovaDeviceMotion) {
+  console.log("timer controller is on!");
   var vm = this;
   vm.pomodoroName = pomodoroFactory.getPomodoroName();
   vm.pomodoroLength = pomodoroFactory.getpomodoroLength();
@@ -58,18 +59,16 @@ angular.module('app.controllers', [])
 
     $interval(function (){
       nextStep();
-    }, 500)
+    }, 100)
   }
 
   function nextStep () {
     document.addEventListener("deviceready", function () {
       $cordovaDeviceMotion.getCurrentAcceleration().then(function(res) {
-        vm.test = "*************************************";
         vm.second = res;
         vm.a = res.x;
         vm.b = res.y;
         vm.c = res.z;
-
         computeDot(vm.first, vm.second);
 
       }, function(err) {
@@ -78,12 +77,14 @@ angular.module('app.controllers', [])
     }, false);
   }
 
-  function computeDot(first, second){
-    vm.dot = (second.x * first.x) + (second.y * first.y) + (second.z * first.z);
-    // vm.a = ABS(sqrt(px * px + py * py + pz * pz));
-    // vm.b = ABS(sqrt(xx * xx + yy * yy + zz * zz));
-
+  function computeDot(first, second) {
+    vm.dot = ((second.x * first.x) + (second.y * first.y) + (second.z * first.z)).toFixed(2);
+    vm.a = Math.sqrt(first.x * first.x + first.y * first.y + first.z * first.z);
+    vm.b = Math.sqrt(second.x * second.x + second.y * second.y + second.z * second.z);
+    vm.dotEnd = (vm.dot / (vm.a * vm.b)).toFixed(2);
+    if(vm.dotEnd > 0.75) vm.test = (vm.a - vm.b)
   }
+
   //
   // dot /= (a * b);
   //

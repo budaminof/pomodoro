@@ -9734,11 +9734,24 @@ a.button {
 .custom-icon, .bar.bar-stable .title {
   color: #065e1e; }
 
+body, button, input, h1, h2, h3, h4 {
+  font-family: 'Josefin Sans', sans-serif !important;
+  font-weight: 500; }
+
+ul li {
+  font-size: 19px; }
+
+input[type="text"], button {
+  font-size: 19px !important; }
+
 .work-timer {
   text-align: center; }
   .work-timer h3 {
     margin-top: 120px;
     font-size: 120px; }
+
+.timer-break {
+  text-align: center; }
 
 .pomodoro-name img {
   height: 80px; }
@@ -9755,7 +9768,13 @@ a.button {
   transform: rotate(10deg); }
 
 .pomodoro-name .steps-img {
-  margin-left: 210px; }
+  margin-left: 210px;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH"; }
 
 .pomodoro-name .arrow-up-img {
   height: 50px;
