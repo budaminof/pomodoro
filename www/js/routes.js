@@ -16,6 +16,7 @@ angular.module('app.routes', [])
   })
 
   .state('tabsController.pomodoro', {
+    cache: false,
     url: '/pomodoro',
     views: {
       'tab3': {
@@ -33,6 +34,7 @@ angular.module('app.routes', [])
   })
 
   .state('tabsController.pomoforoTimer', {
+    cache: false,
     url: '/pomoforo-timer',
     views: {
       'tab3': {
@@ -44,6 +46,7 @@ angular.module('app.routes', [])
   })
 
   .state('tabsController.pomodoroBreak', {
+    cache: false,
     url: '/pomodoro-break',
     views: {
       'tab3': {
@@ -54,8 +57,6 @@ angular.module('app.routes', [])
     }
   })
 
-$urlRouterProvider.otherwise('/page1/welcome')
-
-
+$urlRouterProvider.otherwise('/page1/welcome');
 
 });

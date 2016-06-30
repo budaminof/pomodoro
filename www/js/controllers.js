@@ -11,7 +11,7 @@ angular.module('app.controllers', [])
 
   function submitName (){
     pomodoroFactory.pomodoroName(vm.form.name);
-    $state.go("tabsController.pomoforoTimer");
+    $state.go("tabsController.pomoforoTimer", {}, {reload: true});
     vm.form = {};
     return
   }
@@ -19,7 +19,6 @@ angular.module('app.controllers', [])
 })
 
 .controller('pomoforoTimerCtrl', function($scope, pomodoroFactory, $state, $interval, $cordovaVibration, $ionicPlatform, $cordovaDeviceMotion) {
-  console.log("timer controller is on!");
   var vm = this;
   vm.pomodoroName = pomodoroFactory.getPomodoroName();
   vm.pomodoroLength = pomodoroFactory.getpomodoroLength();
@@ -42,35 +41,27 @@ angular.module('app.controllers', [])
 .controller('pomodoroBreakCtrl', function($scope, pomodoroFactory, $state, $interval, $cordovaVibration, $ionicPlatform, $cordovaDeviceMotion) {
   var vm = this;
   vm.time = 0;
+  vm.counter = 0;
+
   moving();
 
   function moving (){
     document.addEventListener("deviceready", function () {
       $cordovaDeviceMotion.getCurrentAcceleration().then(function(result) {
         vm.first = result;
-        vm.X = result.x;
-        vm.Y = result.y;
-        vm.Z = result.z;
-        // vm.timeStamp = result.timestamp;
       }, function(err) {
         console.log(err);
       });
     }, false);
 
-    $interval(function (){
-      nextStep();
-    }, 100)
+    nextStep();
   }
 
   function nextStep () {
     document.addEventListener("deviceready", function () {
       $cordovaDeviceMotion.getCurrentAcceleration().then(function(res) {
         vm.second = res;
-        vm.a = res.x;
-        vm.b = res.y;
-        vm.c = res.z;
         computeDot(vm.first, vm.second);
-
       }, function(err) {
         console.log(err);
       });
@@ -78,36 +69,40 @@ angular.module('app.controllers', [])
   }
 
   function computeDot(first, second) {
-    vm.dot = ((second.x * first.x) + (second.y * first.y) + (second.z * first.z)).toFixed(2);
+    //the dot product
+    vm.dot = ((second.x * first.x) + (second.y * first.y) + (second.z * first.z));
+    //length of vector a
     vm.a = Math.sqrt(first.x * first.x + first.y * first.y + first.z * first.z);
+    //length of vector b
     vm.b = Math.sqrt(second.x * second.x + second.y * second.y + second.z * second.z);
-    vm.dotEnd = (vm.dot / (vm.a * vm.b)).toFixed(2);
-    if(vm.dotEnd > 0.75) vm.test = (vm.a - vm.b).toFixed(2);
+    //the angle between vector a and vector b
+    vm.acos = Math.acos((vm.dot / (vm.a * vm.b)));
+    //if the angle is bigger than 0.54 radians (another angle mesurement)
+    // radians: 360 deg = 2pi rad
+    if (vm.counter === 6) return timeForAbreak();
+    if (vm.counter < 6) {
+      $ionicPlatform.ready(function() {
+        $cordovaVibration.vibrate(50);
+      });
+    }
+    if (vm.acos > 0.75) {
+      vm.counter++;
+      vm.first = vm.second;
+    }
+    nextStep();
   }
 
-  // if (dot < sensitivity) // bounce
-  // {
-  //     if (!isChange)
-  //     {
-  //         isChange = YES;
-  //          // count increases and all work done here
-  //     } else {
-  //         isChange = NO;
-  //     }
-  //     px = xx; py = yy; pz = zz;
-  // }
-
-
-  // var interval = $interval(function () {
-  //   vm.time++;
-  //   if(vm.time === 3) {
-  //     $interval.cancel(interval);
-  //     // $ionicPlatform.ready(function() {
-  //     //   $cordovaVibration.vibrate(100);
-  //     // });
-  //     vm.time = 0;
-  //     $state.go("tabsController.pomodoro", {}, {reload: true});
-  //   }
-  // },1000)
+function timeForAbreak () {
+  var interval = $interval(function () {
+    vm.time++;
+    if(vm.time === 10) {
+      $interval.cancel(interval);
+      $ionicPlatform.ready(function() {
+        $cordovaVibration.vibrate(100);
+      });
+      return $state.go("tabsController.pomodoro", {}, {reload: true});
+    }
+  }, 1000)
+}
 
 })
