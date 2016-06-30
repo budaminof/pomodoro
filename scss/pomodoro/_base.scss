@@ -2,6 +2,7 @@
 
 .custom-icon, .bar.bar-stable .title {
   color: $icons;
+  font-size: 18px;
 }
 
 body, button, input, h1, h2, h3, h4 {
@@ -14,5 +15,5 @@ ul li {
 }
 
 input[type="text"], button{
-  font-size: 19px !important; 
+  font-size: 19px !important;
 }

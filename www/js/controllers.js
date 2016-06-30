@@ -82,12 +82,9 @@ angular.module('app.controllers', [])
     vm.a = Math.sqrt(first.x * first.x + first.y * first.y + first.z * first.z);
     vm.b = Math.sqrt(second.x * second.x + second.y * second.y + second.z * second.z);
     vm.dotEnd = (vm.dot / (vm.a * vm.b)).toFixed(2);
-    if(vm.dotEnd > 0.75) vm.test = (vm.a - vm.b)
+    if(vm.dotEnd > 0.75) vm.test = (vm.a - vm.b).toFixed(2);
   }
 
-  //
-  // dot /= (a * b);
-  //
   // if (dot < sensitivity) // bounce
   // {
   //     if (!isChange)
