@@ -58,7 +58,7 @@ angular.module('app.controllers', [])
 
     $interval(function (){
       nextStep();
-    }, 1000)
+    }, 500)
   }
 
   function nextStep () {

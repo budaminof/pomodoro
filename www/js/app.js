@@ -8,6 +8,7 @@
 angular.module('app', [
   'ionic',
   'ngCordova',
+  'ngAnimate',
   'app.controllers',
   'app.routes',
   'app.services',

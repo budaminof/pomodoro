@@ -9736,6 +9736,9 @@ a.button {
 
 .work-timer {
   text-align: center; }
+  .work-timer h3 {
+    margin-top: 120px;
+    font-size: 120px; }
 
 .pomodoro-name img {
   height: 80px; }
