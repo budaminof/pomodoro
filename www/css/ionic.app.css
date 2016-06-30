@@ -9737,38 +9737,35 @@ a.button {
 .work-timer {
   text-align: center; }
 
-.pomodoro-name button {
-  top: 40px !important; }
-
 .pomodoro-name img {
   height: 80px; }
 
 .pomodoro-name .pomodoro-images {
-  margin-top: 50px; }
+  margin-top: 10px; }
 
 .pomodoro-name .working-img {
-  margin-left: 120px; }
+  margin-left: 90px; }
 
 .pomodoro-name .arrow-down-img {
   height: 50px;
-  margin-left: 220px;
+  margin-left: 190px;
   transform: rotate(10deg); }
 
 .pomodoro-name .steps-img {
-  margin-left: 240px; }
+  margin-left: 210px; }
 
 .pomodoro-name .arrow-up-img {
   height: 50px;
-  margin-left: 50px;
+  margin-left: 20px;
   margin-top: -100px;
   transform: rotate(250deg); }
 
 .pomodoro-name .arrow-middle-img {
   height: 50px;
   transform: rotate(140deg);
-  margin-left: 140px; }
+  margin-left: 110px; }
 
 .pomodoro-name .phone-img {
   height: 70px;
-  margin-left: 70px;
+  margin-left: 40px;
   margin-top: -100px; }
