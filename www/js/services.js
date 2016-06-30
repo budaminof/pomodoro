@@ -2,10 +2,12 @@ angular.module('app.services', [])
 
 .factory('pomodoroFactory', [function(){
   var _currentPomodoro;
+  var _pomodoroLength = 5;
 
   return {
     pomodoroName: pomodoroName,
     getPomodoroName: getPomodoroName,
+    getpomodoroLength: getpomodoroLength,
   }
 
   function pomodoroName (name){
@@ -14,6 +16,10 @@ angular.module('app.services', [])
 
   function getPomodoroName (){
     return _currentPomodoro;
+  }
+
+  function getpomodoroLength () {
+    return _pomodoroLength;
   }
 
 }])

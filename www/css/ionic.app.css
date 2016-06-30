@@ -9739,3 +9739,36 @@ a.button {
 
 .pomodoro-name button {
   top: 40px !important; }
+
+.pomodoro-name img {
+  height: 80px; }
+
+.pomodoro-name .pomodoro-images {
+  margin-top: 50px; }
+
+.pomodoro-name .working-img {
+  margin-left: 120px; }
+
+.pomodoro-name .arrow-down-img {
+  height: 50px;
+  margin-left: 220px;
+  transform: rotate(10deg); }
+
+.pomodoro-name .steps-img {
+  margin-left: 240px; }
+
+.pomodoro-name .arrow-up-img {
+  height: 50px;
+  margin-left: 50px;
+  margin-top: -100px;
+  transform: rotate(250deg); }
+
+.pomodoro-name .arrow-middle-img {
+  height: 50px;
+  transform: rotate(140deg);
+  margin-left: 140px; }
+
+.pomodoro-name .phone-img {
+  height: 70px;
+  margin-left: 70px;
+  margin-top: -100px; }
