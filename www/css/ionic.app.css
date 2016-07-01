@@ -9765,6 +9765,9 @@ button:active, button:focus {
     font-size: 60px; }
   .timer-break h2 {
     margin-bottom: 70px; }
+  .timer-break .walking-gif {
+    margin-top: 100px;
+    width: 300px; }
 
 .pomodoro-name img {
   height: 80px; }

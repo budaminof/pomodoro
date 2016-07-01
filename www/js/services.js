@@ -2,9 +2,9 @@ angular.module('app.services', [])
 
 .factory('pomodoroFactory', [function(){
   var _currentPomodoro;
-  var _pomodoroLength = 5;
+  var _pomodoroLength = 25;
   var _pomodoroCount = 0;
-  var _shortBreak = 5;
+  var _shortBreak = 2;
   var _LongBreak = 10;
 
 
