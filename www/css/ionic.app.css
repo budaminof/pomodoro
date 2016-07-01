@@ -9739,11 +9739,16 @@ body, button, input, h1, h2, h3, h4 {
   font-family: 'Josefin Sans', sans-serif !important;
   font-weight: 500; }
 
-ul li {
-  font-size: 19px; }
-
 input[type="text"], button {
   font-size: 19px !important; }
+
+button {
+  color: #065e1e !important;
+  border-color: #065e1e !important; }
+
+button:active, button:focus {
+  color: white !important;
+  background-color: #065e1e !important; }
 
 .work-timer {
   text-align: center; }
@@ -9761,7 +9766,8 @@ input[type="text"], button {
   margin-top: 10px; }
 
 .pomodoro-name .working-img {
-  margin-left: 90px; }
+  margin-left: 90px;
+  margin-bottom: 0px; }
 
 .pomodoro-name .arrow-down-img {
   height: 50px;
@@ -9769,7 +9775,7 @@ input[type="text"], button {
   transform: rotate(10deg); }
 
 .pomodoro-name .steps-img {
-  margin-left: 210px;
+  margin-left: 190px;
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
@@ -9779,16 +9785,29 @@ input[type="text"], button {
 
 .pomodoro-name .arrow-up-img {
   height: 50px;
-  margin-left: 20px;
-  margin-top: -100px;
-  transform: rotate(250deg); }
+  margin-left: 40px;
+  margin-top: -110px;
+  top: -10px;
+  transform: rotate(240deg); }
 
 .pomodoro-name .arrow-middle-img {
   height: 50px;
-  transform: rotate(140deg);
-  margin-left: 110px; }
+  transform: rotate(130deg);
+  margin-left: 130px;
+  margin-top: -30px; }
 
 .pomodoro-name .phone-img {
   height: 70px;
-  margin-left: 40px;
-  margin-top: -100px; }
+  margin-left: 50px;
+  margin-top: -120px; }
+
+.welcome {
+  text-align: center; }
+  .welcome h3 {
+    margin: 10px 0px 30px 0px; }
+  .welcome button {
+    top: 30px;
+    padding: 20px; }
+  .welcome ul li {
+    font-size: 19px;
+    margin-top: 20px; }

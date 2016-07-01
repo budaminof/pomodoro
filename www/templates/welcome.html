@@ -1,17 +1,21 @@
-<ion-view title="Welcome" id="page2" class=" ">
+<ion-view title="Welcome" id="page2" class="welcome">
     <ion-content padding="true" class="has-header">
       <h3>
-        Let's get more out of your time
+        Let's get more out of your time!
+      </h3>
+      <h3>
+        It's that simple:
       </h3>
 
       <ul>
-        <li>Each session is 25 minutes.</li>
+        <li>Choose a specific task.</li>
+        <li>Each Pomodoro is 25 minutes.</li>
         <li>Take a walk (seriously, take a walk).</li>
-        <li>Come back for your next pomodoro.</li>
-        <li>After 4 pomodoros, take a long break.</li>
+        <li>Come back for your next Pomodoro.</li>
+        <li>After 4 Pomodoros, take a long break.</li>
       </ul>
 
-      <!-- <a ui-sref="tabsController.pomodoro" id="pomodoro-button1" class="button button-outline button-balanced button-full">
-        get started</a> -->
+      <button ui-sref="tabsController.pomodoro({reload: true})" class="button button-outline button-balanced button-full">
+        Ready?</button>
     </ion-content>
 </ion-view>

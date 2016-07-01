@@ -1,0 +1,21 @@
+@import "pomodoro/variables.scss";
+
+.welcome {
+  text-align: center;
+
+  h3 {
+    margin: 10px 0px 30px 0px;
+  }
+
+  button {
+    top: 30px;
+    padding: 20px
+  }
+
+  ul li {
+    font-size: 19px;
+    margin-top: 20px;
+  }
+
+
+}

@@ -22,16 +22,16 @@ angular.module('app.controllers', [])
   var vm = this;
   vm.pomodoroName = pomodoroFactory.getPomodoroName();
   vm.pomodoroLength = pomodoroFactory.getpomodoroLength();
-  vm.time = 0;
+  pomodoroFactory.setPomoforoCount();
+  vm.time = vm.pomodoroLength;
 
   var interval = $interval(function () {
-    vm.time++;
-    if(vm.time === vm.pomodoroLength) {
+    vm.time--;
+    if(vm.time === 0) {
       $interval.cancel(interval);
       $ionicPlatform.ready(function() {
         $cordovaVibration.vibrate(100);
       });
-      vm.time = 0;
       $state.go('tabsController.pomodoroBreak', {}, {reload: true});
     }
   },1000)
@@ -40,9 +40,16 @@ angular.module('app.controllers', [])
 
 .controller('pomodoroBreakCtrl', function($scope, pomodoroFactory, $state, $interval, $cordovaVibration, $ionicPlatform, $cordovaDeviceMotion) {
   var vm = this;
-  vm.time = 0;
+  vm.stepsToStop = 6;
   vm.counter = 0;
-
+  if (pomodoroFactory.getPomodoroCount() <= 4){
+    vm.breakLenght = pomodoroFactory.getShortBreak();
+  } else {
+    vm.breakLenght = pomodoroFactory.getLongBreak();
+  }
+  vm.time = vm.breakLenght;
+  
+  // timeForAbreak();
   moving();
 
   function moving (){
@@ -77,10 +84,10 @@ angular.module('app.controllers', [])
     vm.b = Math.sqrt(second.x * second.x + second.y * second.y + second.z * second.z);
     //the angle between vector a and vector b
     vm.acos = Math.acos((vm.dot / (vm.a * vm.b)));
-    //if the angle is bigger than 0.54 radians (another angle mesurement)
+    //if the angle is bigger than 0.75 radians (another angle mesurement)
     // radians: 360 deg = 2pi rad
-    if (vm.counter === 6) return timeForAbreak();
-    if (vm.counter < 6) {
+    if (vm.counter === vm.stepsToStop) return timeForAbreak();
+    if (vm.counter < vm.stepsToStop) {
       $ionicPlatform.ready(function() {
         $cordovaVibration.vibrate(50);
       });
@@ -94,8 +101,8 @@ angular.module('app.controllers', [])
 
 function timeForAbreak () {
   var interval = $interval(function () {
-    vm.time++;
-    if(vm.time === 10) {
+    vm.time--;
+    if(vm.time === 0) {
       $interval.cancel(interval);
       $ionicPlatform.ready(function() {
         $cordovaVibration.vibrate(100);

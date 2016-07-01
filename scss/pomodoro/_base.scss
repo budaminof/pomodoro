@@ -10,10 +10,17 @@ font-family: 'Josefin Sans', sans-serif !important;
 font-weight: 500;
 }
 
-ul li {
-  font-size: 19px;
-}
 
 input[type="text"], button{
   font-size: 19px !important;
+}
+
+button {
+  color: $icons !important;
+  border-color: $icons !important;
+}
+
+button:active, button:focus {
+  color: white !important;
+  background-color: $icons !important;
 }

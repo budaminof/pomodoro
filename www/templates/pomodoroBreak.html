@@ -1,10 +1,8 @@
 <ion-view title="Pomodoro break" id="page7" class="timer-break">
     <ion-content padding="true" class="has-header">
-      <h2>Time for a break.</h2>
-      <h1>Take A Walk!</h1>
-      <h3 ng-bind="vm.time"></h3>
-
-      <h3>STEPS: {{vm.counter}}</h3>
+      <h1 ng-show="vm.counter < vm.stepsToStop">Take A Walk!</h1>
+      <h2 ng-show="vm.counter === vm.stepsToStop">Time for a break</h2>
+      <h3 ng-bind="vm.time" ng-show="vm.counter === vm.stepsToStop"></h3>
 
     </ion-content>
 </ion-view>
