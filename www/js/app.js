@@ -9,6 +9,7 @@ angular.module('app', [
   'ionic',
   'ngCordova',
   'ngAnimate',
+  'angular-svg-round-progressbar',
   'app.controllers',
   'app.routes',
   'app.services',

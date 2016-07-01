@@ -7,7 +7,7 @@ angular.module('app.routes', [])
   .state('tabsController.welcome', {
     url: '/welcome',
     views: {
-      'tab1': {
+      'welcome': {
         templateUrl: 'templates/welcome.html',
         controller: 'welcomeCtrl',
         controllerAs: 'vm'
@@ -19,7 +19,7 @@ angular.module('app.routes', [])
     cache: false,
     url: '/pomodoro',
     views: {
-      'tab3': {
+      'pomdoros': {
         templateUrl: 'templates/pomodoro.html',
         controller: 'pomodoroCtrl',
         controllerAs: 'vm',
@@ -37,7 +37,7 @@ angular.module('app.routes', [])
     cache: false,
     url: '/pomoforo-timer',
     views: {
-      'tab3': {
+      'pomdoros': {
         templateUrl: 'templates/pomoforoTimer.html',
         controller: 'pomoforoTimerCtrl',
         controllerAs: 'vm',
@@ -49,7 +49,7 @@ angular.module('app.routes', [])
     cache: false,
     url: '/pomodoro-break',
     views: {
-      'tab3': {
+      'pomdoros': {
         templateUrl: 'templates/pomodoroBreak.html',
         controller: 'pomodoroBreakCtrl',
         controllerAs: 'vm',

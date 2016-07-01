@@ -48,7 +48,7 @@ angular.module('app.controllers', [])
     vm.breakLenght = pomodoroFactory.getLongBreak();
   }
   vm.time = vm.breakLenght;
-  
+
   // timeForAbreak();
   moving();
 

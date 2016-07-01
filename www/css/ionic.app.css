@@ -9753,11 +9753,18 @@ button:active, button:focus {
 .work-timer {
   text-align: center; }
   .work-timer h3 {
-    margin-top: 120px;
-    font-size: 120px; }
+    margin-top: -140px;
+    font-size: 60px; }
+  .work-timer h2 {
+    margin-bottom: 70px; }
 
 .timer-break {
   text-align: center; }
+  .timer-break h3 {
+    margin-top: -140px;
+    font-size: 60px; }
+  .timer-break h2 {
+    margin-bottom: 70px; }
 
 .pomodoro-name img {
   height: 80px; }

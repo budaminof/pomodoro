@@ -2,7 +2,25 @@
     <ion-content padding="true" class="has-header">
       <h1 ng-show="vm.counter < vm.stepsToStop">Take A Walk!</h1>
       <h2 ng-show="vm.counter === vm.stepsToStop">Time for a break</h2>
-      <h3 ng-bind="vm.time" ng-show="vm.counter === vm.stepsToStop"></h3>
+
+      <round-progress ng-show="vm.counter === vm.stepsToStop"
+          max="vm.breakLenght"
+          current="vm.time"
+          responsive="true"
+          color="#45ccce"
+          bgcolor="#eaeaea"
+          radius="100"
+          stroke="20"
+          rounded="true"
+          clockwise="false"
+          responsive="false"
+          duration="800"
+          animation="easeInOutQuart"
+          animation-delay="0">
+        </round-progress>
+
+        <h3 ng-bind="vm.time" ng-show="vm.counter === vm.stepsToStop"></h3>
+
 
     </ion-content>
 </ion-view>
