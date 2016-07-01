@@ -8,7 +8,7 @@ To install:
   * `` ionic emulate ios ``
   * `` ionic upload  `` // to see on ionic, you might have to do `` ionic login `` first.
 
-There is a demo on my [site](budaminof.com).
+There is a demo on my [site](https://budaminof.com).
 
 When I got into Galvanize I found myself working for hours on a problems,  I wouldn't take breaks or leave my chair.
 Jeff suggested I will look in the pomodoro- technique to try and have better time management.  
