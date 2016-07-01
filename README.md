@@ -1,12 +1,12 @@
 ## Pomodoro app
 
 To install:
-  * `` npm install `` //install all dependencies
-  * `` npm install -g cordova ionic `` // install Ionic
-  * `` ionic platform add ios `` // add ios platform
-  * `` ionic build ios `` // build for ios
-  * `` ionic emulate ios `` // see on simulator
-  * `` ionic upload  `` // to see on ionic-view
+  * `` npm install ``
+  * `` npm install -g cordova ionic ``
+  * `` ionic platform add ios ``
+  * `` ionic build ios ``
+  * `` ionic emulate ios ``
+  * `` ionic upload  `` // to see on ionic, you might have to do `` ionic login `` first.
 
 There is a demo on my [site](budaminof.com).
 
