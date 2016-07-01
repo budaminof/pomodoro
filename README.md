@@ -1,25 +1,18 @@
-Ionic App Base
-=====================
+## Pomodoro app
 
-A starting project for Ionic that optionally supports using custom SCSS.
+To install:
+  * `` npm install `` //install all dependencies
+  * `` npm install -g cordova ionic `` // install Ionic
+  * `` ionic platform add ios `` // add ios platform
+  * `` ionic build ios `` // build for ios
+  * `` ionic emulate ios `` // see on simulator
+  * `` ionic upload  `` // to see on ionic-view
 
-## Using this project
+There is a demo on my [site](budaminof.com).
 
-We recommend using the [Ionic CLI](https://github.com/driftyco/ionic-cli) to create new Ionic projects that are based on this project but use a ready-made starter template.
+When I got into Galvanize I found myself working for hours on a problems,  I wouldn't take breaks or leave my chair.
+Jeff suggested I will look in the pomodoro- technique to try and have better time management.  
+And so I can up with the idea to build an app that will force me to stop and leave my chair my it is time for a break.
 
-For example, to start a new Ionic project with the default tabs interface, make sure the `ionic` utility is installed:
-
-```bash
-$ npm install -g ionic
-```
-
-Then run: 
-
-```bash
-$ ionic start myProject tabs
-```
-
-More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/getting-started) page and the [Ionic CLI](https://github.com/driftyco/ionic-cli) repo.
-
-## Issues
-Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/submit-issue/) to the main Ionic repository.
+Pomodoro app is build with Ionic for ios, AngularJS and Express backend.
+I used the Accelerometer to get movement of the phone and used vectors to calculate a step.
