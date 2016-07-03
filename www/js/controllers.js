@@ -107,7 +107,11 @@ function timeForAbreak () {
       $ionicPlatform.ready(function() {
         $cordovaVibration.vibrate(100);
       });
-      return $state.go("tabsController.pomodoro", {}, {reload: true});
+      pomodoroFactory.finishedPomdoro(vm.uuid)
+      .then(function (res) {
+        vm.response = res;
+        // return $state.go("tabsController.pomodoro", {}, {reload: true});
+      })
     }
   }, 1000)
 }

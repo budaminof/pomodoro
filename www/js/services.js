@@ -1,11 +1,11 @@
 angular.module('app.services', [])
 
-.factory('pomodoroFactory', [function(){
+.factory('pomodoroFactory', ['$http',function($http){
   var _currentPomodoro;
-  var _pomodoroLength = 25;
+  var _pomodoroLength = 3;
   var _pomodoroCount = 0;
   var _shortBreak = 2;
-  var _LongBreak = 10;
+  var _LongBreak = 5;
 
 
   return {
@@ -16,6 +16,7 @@ angular.module('app.services', [])
     setPomoforoCount: setPomoforoCount,
     getShortBreak: getShortBreak,
     getLongBreak: getLongBreak,
+    finishedPomdoro: finishedPomdoro,
   }
 
   function pomodoroName (name) {
@@ -44,6 +45,18 @@ angular.module('app.services', [])
 
   function getLongBreak(){
     return _LongBreak;
+  }
+
+  function finishedPomdoro(phoneId) {
+    var post = {
+       phone_id: phoneId,
+       name: _currentPomodoro,
+     }
+    
+    return $http.post('http://localhost:3000/api/v1/users', post)
+    .then(function (res) {
+      return res
+    })
   }
 
 }])
