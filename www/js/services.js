@@ -18,7 +18,7 @@ angular.module('app.services', [])
     getLongBreak: getLongBreak,
   }
 
-  function pomodoroName (name){
+  function pomodoroName (name) {
     return _currentPomodoro = name;
   }
 
