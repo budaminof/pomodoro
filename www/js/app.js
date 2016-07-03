@@ -16,6 +16,7 @@ angular.module('app', [
   'app.directives'
 ])
 
+.constant({'API_URL': resolveApiUrl()})
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -30,3 +31,9 @@ angular.module('app', [
     }
   });
 })
+
+
+function resolveApiUrl(){
+    if(window.location.origin === "http://localhost:8100") return 'http://localhost:3000';
+    return 'https://pomodoro-database.herokuapp.com'
+  }

@@ -1,6 +1,6 @@
 angular.module('app.services', [])
 
-.factory('pomodoroFactory', ['$http',function($http){
+.factory('pomodoroFactory', ['$http', 'API_URL', function($http, API_URL){
   var _currentPomodoro;
   var _pomodoroLength = 3;
   var _pomodoroCount = 0;
@@ -52,7 +52,7 @@ angular.module('app.services', [])
        phone_id: phoneId,
        name: _currentPomodoro,
      }
-    return $http.post('https://pomodoro-database.herokuapp.com/api/v1/users', post)
+    return $http.post(API_URL + '/api/v1/users', post)
     .then(function (res) {
       return res
     })
