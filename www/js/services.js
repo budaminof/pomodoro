@@ -52,8 +52,7 @@ angular.module('app.services', [])
        phone_id: phoneId,
        name: _currentPomodoro,
      }
-    
-    return $http.post('http://localhost:3000/api/v1/users', post)
+    return $http.post('https://pomodoro-database.herokuapp.com/api/v1/users', post)
     .then(function (res) {
       return res
     })

@@ -38,7 +38,7 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('pomodoroBreakCtrl', function($scope, pomodoroFactory, $state, $interval, $cordovaVibration, $ionicPlatform, $cordovaDeviceMotion) {
+.controller('pomodoroBreakCtrl', function($scope, pomodoroFactory, $state, $interval, $cordovaVibration, $ionicPlatform, $cordovaDeviceMotion, $cordovaDevice) {
   var vm = this;
   vm.stepsToStop = 6;
   vm.counter = 0;
@@ -48,6 +48,15 @@ angular.module('app.controllers', [])
     vm.breakLenght = pomodoroFactory.getLongBreak();
   }
   vm.time = vm.breakLenght;
+
+  init();
+  function init () {
+      try {
+          vm.uuid = $cordovaDevice.getUUID();
+      } catch (err) {
+          console.log(err);
+      }
+    }
 
   // timeForAbreak();
   moving();
@@ -109,8 +118,7 @@ function timeForAbreak () {
       });
       pomodoroFactory.finishedPomdoro(vm.uuid)
       .then(function (res) {
-        vm.response = res;
-        // return $state.go("tabsController.pomodoro", {}, {reload: true});
+        return $state.go("tabsController.pomodoro", {}, {reload: true});
       })
     }
   }, 1000)
