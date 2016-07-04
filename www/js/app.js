@@ -11,11 +11,12 @@ angular.module('app', [
   'ngAnimate',
   'angularMoment',
   'angular.filter',
+  'chart.js',
   'angular-svg-round-progressbar',
   'app.controllers',
   'app.routes',
   'app.services',
-  'app.directives'
+  'app.directives',
 ])
 
 .constant({'API_URL': resolveApiUrl()})
