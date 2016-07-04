@@ -9732,8 +9732,10 @@ a.button {
   transition-duration: 0s; }
 
 .custom-icon, .bar.bar-stable .title {
-  color: #065e1e;
-  font-size: 18px; }
+  color: white;
+  background-color: #065e1e;
+  font-size: 18px;
+  margin: 0px; }
 
 body, button, input, h1, h2, h3, h4 {
   font-family: 'Josefin Sans', sans-serif !important;

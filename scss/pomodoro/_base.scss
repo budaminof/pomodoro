@@ -1,8 +1,10 @@
 @import "pomodoro/variables.scss";
 
 .custom-icon, .bar.bar-stable .title {
-  color: $icons;
+  color: white;
+  background-color: $icons;
   font-size: 18px;
+  margin: 0px;
 }
 
 body, button, input, h1, h2, h3, h4 {

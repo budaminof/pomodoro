@@ -15,11 +15,11 @@ angular.module('app.routes', [])
     }
   })
 
-  .state('tabsController.home', {
+  .state('tabsController.history', {
     cache: false,
-    url: '/home',
+    url: '/history',
     views: {
-      'home': {
+      'history': {
         templateUrl: 'templates/home.html',
         controller: 'homeCtrl',
         controllerAs: 'vm'
