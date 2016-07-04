@@ -9821,3 +9821,6 @@ button:active, button:focus {
   .welcome ul li {
     font-size: 19px;
     margin-top: 20px; }
+
+.pomodoro-home .list {
+  margin-bottom: 10px !important; }

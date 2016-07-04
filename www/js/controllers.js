@@ -4,6 +4,30 @@ angular.module('app.controllers', [])
 
 })
 
+.controller('homeCtrl', function($scope, $cordovaDevice, pomodoroFactory) {
+var vm = this;
+getPhoneId();
+function getPhoneId () {
+    try {
+        vm.uuid = $cordovaDevice.getUUID();
+    } catch (err) {
+        console.log(err);
+    }
+  }
+
+  pomodoroFactory.getAllPomodoros(vm.uuid)
+  .then(function(res) {
+    for (var i = 0; i < res.length; i++) {
+      var cut = res[i].created_at.indexOf('T');
+      var newDate = res[i].created_at.split('').slice(0, cut).join('');
+      res[i].date = newDate;
+    }
+    vm.pomodoros = res.reverse();
+    return
+  })
+
+})
+
 .controller('pomodoroCtrl', function($scope, $state, pomodoroFactory) {
   var vm = this;
   vm.form = {};
@@ -49,8 +73,8 @@ angular.module('app.controllers', [])
   }
   vm.time = vm.breakLenght;
 
-  init();
-  function init () {
+  getPhoneId();
+  function getPhoneId () {
       try {
           vm.uuid = $cordovaDevice.getUUID();
       } catch (err) {

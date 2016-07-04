@@ -15,6 +15,18 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('tabsController.home', {
+    cache: false,
+    url: '/home',
+    views: {
+      'home': {
+        templateUrl: 'templates/home.html',
+        controller: 'homeCtrl',
+        controllerAs: 'vm'
+      }
+    }
+  })
+
   .state('tabsController.pomodoro', {
     cache: false,
     url: '/pomodoro',

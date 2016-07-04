@@ -1,0 +1,16 @@
+<ion-view title="Home" class="pomodoro-home">
+  <ion-content padding="true" class="has-header">
+
+    <ion-list ng-repeat="(date, pomodoro) in vm.pomodoros | groupBy: 'date'" class="list">
+      <div class="item item-divider">
+        <h2 ng-bind="date | date:'fullDate' "></h2>
+      </div>
+
+      <div class="item" ng-repeat="item in pomodoro">
+        <h2 ng-bind="item.name"></h2>
+        <p ng-bind="item.created_at | amCalendar"></p>
+      </div>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

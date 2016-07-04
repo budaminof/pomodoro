@@ -9,6 +9,8 @@ angular.module('app', [
   'ionic',
   'ngCordova',
   'ngAnimate',
+  'angularMoment',
+  'angular.filter',
   'angular-svg-round-progressbar',
   'app.controllers',
   'app.routes',
@@ -32,8 +34,8 @@ angular.module('app', [
   });
 })
 
-
-function resolveApiUrl(){
+function resolveApiUrl() {
     if(window.location.origin === "http://localhost:8100") return 'http://localhost:3000';
     return 'https://pomodoro-database.herokuapp.com'
+    // return 'http://localhost:3000'
   }

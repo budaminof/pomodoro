@@ -6,7 +6,7 @@ angular.module('app.services', [])
   var _pomodoroCount = 0;
   var _shortBreak = 2;
   var _LongBreak = 5;
-
+  var _allPomodoros;
 
   return {
     pomodoroName: pomodoroName,
@@ -17,6 +17,7 @@ angular.module('app.services', [])
     getShortBreak: getShortBreak,
     getLongBreak: getLongBreak,
     finishedPomdoro: finishedPomdoro,
+    getAllPomodoros: getAllPomodoros,
   }
 
   function pomodoroName (name) {
@@ -55,6 +56,14 @@ angular.module('app.services', [])
     return $http.post(API_URL + '/api/v1/users', post)
     .then(function (res) {
       return res
+    })
+  }
+
+  function getAllPomodoros(phoneId){
+    return $http.get(API_URL + '/api/v1/users/'+ phoneId)
+    .then(function (res) {
+      _allPomodoros = res.data;
+      return _allPomodoros;
     })
   }
 
