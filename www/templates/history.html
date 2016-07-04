@@ -1,5 +1,6 @@
 <ion-view title="History" class="pomodoro-home">
   <ion-content padding="true" class="has-header">
+    
     <ion-list ng-repeat="(date, pomodoro) in vm.pomodoros | groupBy: 'date'" class="list">
       <div class="item item-divider">
         <h2 ng-bind="date | date:'fullDate' "></h2>

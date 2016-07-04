@@ -20,7 +20,7 @@ angular.module('app.routes', [])
     url: '/history',
     views: {
       'history': {
-        templateUrl: 'templates/home.html',
+        templateUrl: 'templates/history.html',
         controller: 'homeCtrl',
         controllerAs: 'vm'
       }
