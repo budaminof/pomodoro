@@ -1,7 +1,11 @@
 <ion-view title="History" class="pomodoro-home">
   <ion-content padding="true" class="has-header">
-    
-    <ion-list ng-repeat="(date, pomodoro) in vm.pomodoros | groupBy: 'date'" class="list">
+
+    <canvas id="line" class="chart chart-bar" chart-data="vm.chartdata" chart-labels="vm.labels">
+
+    </canvas>
+
+    <ion-list ng-repeat=" (date, pomodoro) in vm.pomodoros | groupBy: 'date' " class="list">
       <div class="item item-divider">
         <h2 ng-bind="date | date:'fullDate' "></h2>
       </div>
@@ -10,7 +14,7 @@
         <h2 ng-bind="item.name"></h2>
         <p ng-bind="item.created_at | amCalendar"></p>
       </div>
-
     </ion-list>
+
   </ion-content>
 </ion-view>

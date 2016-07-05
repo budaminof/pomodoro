@@ -5,15 +5,16 @@ angular.module('app.controllers', [])
 })
 
 .controller('homeCtrl', function($scope, $cordovaDevice, pomodoroFactory) {
-var vm = this;
-getPhoneId();
-function getPhoneId () {
-    try {
-        vm.uuid = $cordovaDevice.getUUID();
-    } catch (err) {
-        console.log(err);
+  var vm = this;
+  getPhoneId();
+
+  function getPhoneId () {
+      try {
+          vm.uuid = $cordovaDevice.getUUID();
+      } catch (err) {
+          console.log(err);
+      }
     }
-  }
 
   pomodoroFactory.getAllPomodoros(vm.uuid)
   .then(function(res) {
@@ -23,8 +24,12 @@ function getPhoneId () {
       res[i].date = newDate;
     }
     vm.pomodoros = res.reverse();
+
     return
   })
+
+  vm.labels = [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ];
+  vm.chartdata = [[ 2, 3, 5, 1, 3, 2, 7 ]];
 
 })
 
