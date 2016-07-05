@@ -2,6 +2,10 @@ angular.module('app.controllers', [])
 
 .controller('welcomeCtrl', function($scope) {
 
+  // var audio = new Audio('beep-01a.mp3');
+  // audio.play();
+
+
 })
 
 .controller('homeCtrl', function($scope, $cordovaDevice, pomodoroFactory) {
@@ -67,8 +71,9 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('pomodoroBreakCtrl', function($scope, pomodoroFactory, $state, $interval, $cordovaVibration, $ionicPlatform, $cordovaDeviceMotion, $cordovaDevice) {
+.controller('pomodoroBreakCtrl', function($scope, pomodoroFactory, $state, $interval, $cordovaVibration, $ionicPlatform, $cordovaDeviceMotion, $cordovaDevice, $cordovaNativeAudio) {
   var vm = this;
+  var audio = new Audio('beep-01a.mp3');
   vm.stepsToStop = 6;
   vm.counter = 0;
   if (pomodoroFactory.getPomodoroCount() <= 4){
@@ -128,6 +133,7 @@ angular.module('app.controllers', [])
     if (vm.counter < vm.stepsToStop) {
       $ionicPlatform.ready(function() {
         $cordovaVibration.vibrate(50);
+        audio.play();
       });
     }
     if (vm.acos > 0.75) {
@@ -144,6 +150,7 @@ function timeForAbreak () {
       $interval.cancel(interval);
       $ionicPlatform.ready(function() {
         $cordovaVibration.vibrate(100);
+        audio.play();
       });
       pomodoroFactory.finishedPomdoro(vm.uuid)
       .then(function (res) {
