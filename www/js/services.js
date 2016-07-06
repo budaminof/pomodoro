@@ -49,11 +49,9 @@ angular.module('app.services', [])
   }
 
   function finishedPomdoro(phoneId) {
-    var time = new Date();
     var post = {
        phone_id: phoneId,
        name: _currentPomodoro,
-       created_at: time,
      }
     return $http.post(API_URL + '/api/v1/users', post)
     .then(function (res) {
