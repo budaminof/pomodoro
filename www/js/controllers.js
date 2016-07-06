@@ -5,6 +5,7 @@ angular.module('app.controllers', [])
 
 .controller('homeCtrl', function($scope, $cordovaDevice, pomodoroFactory) {
   var vm = this;
+  console.log(moment().format());
   getPhoneId();
 
   function getPhoneId () {
@@ -15,7 +16,7 @@ angular.module('app.controllers', [])
       }
     }
 
-  pomodoroFactory.getAllPomodoros('26E446F4-D6D2-477B-BF58-43249DFB5AF2')
+  pomodoroFactory.getAllPomodoros(vm.uuid)
   .then(function(res) {
     for (var i = 0; i < res.length; i++) {
       var cut = res[i].created_at.indexOf('T');
@@ -23,7 +24,7 @@ angular.module('app.controllers', [])
       res[i].date = newDate;
     }
 
-    vm.pomodoros = res.reverse();
+    vm.pomodoros = res;
     var data = res.reverse();
     var dataObj = {};
 
