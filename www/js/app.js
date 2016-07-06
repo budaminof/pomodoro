@@ -36,7 +36,7 @@ angular.module('app', [
 })
 
 function resolveApiUrl() {
-    if(window.location.origin === "http://localhost:8100") return 'http://localhost:3000';
+    // if(window.location.origin === "http://localhost:8100") return 'http://localhost:3000';
     return 'https://pomodoro-database.herokuapp.com'
     // return 'http://localhost:3000'
   }

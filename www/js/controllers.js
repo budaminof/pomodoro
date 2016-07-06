@@ -1,11 +1,6 @@
 angular.module('app.controllers', [])
 
 .controller('welcomeCtrl', function($scope) {
-
-  // var audio = new Audio('beep-01a.mp3');
-  // audio.play();
-
-
 })
 
 .controller('homeCtrl', function($scope, $cordovaDevice, pomodoroFactory) {
@@ -20,20 +15,45 @@ angular.module('app.controllers', [])
       }
     }
 
-  pomodoroFactory.getAllPomodoros(vm.uuid)
+  pomodoroFactory.getAllPomodoros('26E446F4-D6D2-477B-BF58-43249DFB5AF2')
   .then(function(res) {
     for (var i = 0; i < res.length; i++) {
       var cut = res[i].created_at.indexOf('T');
       var newDate = res[i].created_at.split('').slice(0, cut).join('');
       res[i].date = newDate;
     }
-    vm.pomodoros = res.reverse();
 
+    vm.pomodoros = res.reverse();
+    var data = res.reverse();
+    var dataObj = {};
+
+    for (var j = 0; j < data.length; j++) {
+      if (!dataObj[data[j].date]) dataObj[data[j].date] = 1;
+      else dataObj[data[j].date]++ ;
+    }
+
+    var counter = 6;
+    var finalArr = [];
+    while (counter >= 0) {
+      var theDay = moment().subtract(counter, 'days').format('YYYY-MM-DD');
+      if(!dataObj[theDay]) dataObj[theDay] = 0;
+      finalArr.push(dataObj[theDay]);
+      counter--;
+    }
+
+    vm.labels = [
+      moment().subtract(6, 'days').format('dddd').split('').slice(0,3).join(''),
+      moment().subtract(5, 'days').format('dddd').split('').slice(0,3).join(''),
+      moment().subtract(4, 'days').format('dddd').split('').slice(0,3).join(''),
+      moment().subtract(3, 'days').format('dddd').split('').slice(0,3).join(''),
+      moment().subtract(2, 'days').format('dddd').split('').slice(0,3).join(''),
+      moment().subtract(1, 'days').format('dddd').split('').slice(0,3).join(''),
+      moment().format('dddd').split('').slice(0,3).join(''),
+      ];
+    vm.chartdata = [finalArr];
     return
   })
 
-  vm.labels = [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ];
-  vm.chartdata = [[ 2, 3, 5, 1, 3, 2, 7 ]];
 
 })
 
