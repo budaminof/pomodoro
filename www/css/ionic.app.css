@@ -9733,9 +9733,11 @@ a.button {
 
 .custom-icon, .bar.bar-stable .title {
   color: white;
-  background-color: #065e1e;
+  background-color: #26294A;
   font-size: 18px;
-  margin: 0px; }
+  margin: 0px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase; }
 
 body, button, input, h1, h2, h3, h4 {
   font-family: 'Josefin Sans', sans-serif !important;
@@ -9745,12 +9747,13 @@ input[type="text"], button {
   font-size: 19px !important; }
 
 button {
-  color: #065e1e !important;
-  border-color: #065e1e !important; }
+  color: #26294A !important;
+  border-color: #26294A !important;
+  text-transform: uppercase; }
 
 button:active, button:focus {
   color: white !important;
-  background-color: #065e1e !important; }
+  background-color: #26294A !important; }
 
 .work-timer {
   text-align: center; }
@@ -9770,6 +9773,13 @@ button:active, button:focus {
   .timer-break .walking-gif {
     margin-top: 100px;
     width: 300px; }
+
+.pomodoro-name h3 {
+  text-align: center; }
+
+.pomodoro-name input {
+  text-align: center;
+  width: 100%; }
 
 .pomodoro-name img {
   height: 80px; }

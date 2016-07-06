@@ -5,7 +5,6 @@ angular.module('app.controllers', [])
 
 .controller('homeCtrl', function($scope, $cordovaDevice, pomodoroFactory) {
   var vm = this;
-  console.log(moment().format());
   getPhoneId();
 
   function getPhoneId () {
@@ -94,7 +93,7 @@ angular.module('app.controllers', [])
 
 .controller('pomodoroBreakCtrl', function($scope, pomodoroFactory, $state, $interval, $cordovaVibration, $ionicPlatform, $cordovaDeviceMotion, $cordovaDevice, $cordovaNativeAudio) {
   var vm = this;
-  var audio = new Audio('beep-01a.mp3');
+  var audio = new Audio('beep.wav');
   vm.stepsToStop = 6;
   vm.counter = 0;
   if (pomodoroFactory.getPomodoroCount() <= 4){
@@ -113,7 +112,6 @@ angular.module('app.controllers', [])
       }
     }
 
-  // timeForAbreak();
   moving();
 
   function moving (){

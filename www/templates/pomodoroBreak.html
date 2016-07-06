@@ -1,4 +1,4 @@
-<ion-view title="Pomodoro break" id="page7" class="timer-break">
+<ion-view title="Pomodoro" id="page7" class="timer-break">
     <ion-content padding="true" class="has-header">
       <h1 ng-show="vm.counter < vm.stepsToStop">Take A Walk!</h1>
       <h2 ng-show="vm.counter === vm.stepsToStop">Time for a break</h2>
@@ -6,7 +6,7 @@
           max="vm.breakLenght"
           current="vm.time"
           responsive="true"
-          color="#FE5E0A"
+          color="#EF6A32"
           bgcolor="#eaeaea"
           radius="100"
           stroke="20"
@@ -20,6 +20,6 @@
 
         <h3 ng-bind="vm.time" ng-show="vm.counter === vm.stepsToStop"></h3>
         <img src="http://www.andrewnourse.com/images/Rough_Walk_cycle_by_Yunyin.gif" alt="walking-gig" class="walking-gif" ng-show="vm.counter < vm.stepsToStop">
-        
+
     </ion-content>
 </ion-view>

@@ -1,11 +1,13 @@
 @import "pomodoro/variables.scss";
 
 .pomodoro-name {
-
-  button {
-    // top: 40px !important;
+  h3{
+    text-align: center;
   }
-
+  input {
+    text-align: center;
+    width: 100%;
+  }
   img {
     height: 80px;
   }

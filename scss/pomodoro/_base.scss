@@ -5,6 +5,8 @@
   background-color: $icons;
   font-size: 18px;
   margin: 0px;
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
 }
 
 body, button, input, h1, h2, h3, h4 {
@@ -20,6 +22,7 @@ input[type="text"], button{
 button {
   color: $icons !important;
   border-color: $icons !important;
+  text-transform: uppercase;
 }
 
 button:active, button:focus {
