@@ -2,10 +2,10 @@ angular.module('app.services', [])
 
 .factory('pomodoroFactory', ['$http', 'API_URL', function($http, API_URL){
   var _currentPomodoro;
-  var _pomodoroLength = 10;
+  var _pomodoroLength = 25;
   var _pomodoroCount = 0;
   var _shortBreak = 5;
-  var _LongBreak = 7;
+  var _LongBreak = 10;
   var _allPomodoros;
 
   return {
