@@ -94,7 +94,7 @@ angular.module('app.controllers', [])
 .controller('pomodoroBreakCtrl', function($scope, pomodoroFactory, $state, $interval, $cordovaVibration, $ionicPlatform, $cordovaDeviceMotion, $cordovaDevice, $cordovaNativeAudio) {
   var vm = this;
   var audio = new Audio('beep.wav');
-  vm.stepsToStop = 20;
+  vm.stepsToStop = 12;
   vm.counter = 0;
   if (pomodoroFactory.getPomodoroCount() < 4){
     vm.breakLenght = pomodoroFactory.getShortBreak();
