@@ -115,6 +115,7 @@ angular.module('app.controllers', [])
     }
 
   moving();
+  // timeForAbreak();
 
   function moving (){
     document.addEventListener("deviceready", function () {
