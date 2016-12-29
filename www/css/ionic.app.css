@@ -9781,9 +9781,11 @@ button:active, button:focus {
   text-align: center;
   width: 100%; }
 
-.pomodoro-name .steps {
-  margin-top: 40px;
-  width: 30%; }
+.pomodoro-name img {
+  height: 400px; }
+
+.pomodoro-name .pomodoro-images {
+  margin-top: 10px; }
 
 .welcome {
   text-align: center; }
