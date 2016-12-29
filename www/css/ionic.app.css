@@ -9782,7 +9782,8 @@ button:active, button:focus {
   width: 100%; }
 
 .pomodoro-name img {
-  height: 400px; }
+  height: 400px;
+  padding-right: 20px; }
 
 .pomodoro-name .pomodoro-images {
   margin-top: 10px; }
