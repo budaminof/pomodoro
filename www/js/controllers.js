@@ -96,9 +96,8 @@ angular.module('app.controllers', [])
   var audio = new Audio('beep.wav');
   vm.stepsToStop = 12;
   vm.counter = 0;
-  vm.pomodoroSession = pomodoroFactory.getPomodoroSession();
 
-  if ( pomodoroFactory.getPomodoroCount() < vm.pomodoroSession ) {
+  if (pomodoroFactory.getPomodoroCount() < pomodoroFactory.getSessions()){
     vm.breakLenght = pomodoroFactory.getShortBreak();
   } else {
     vm.breakLenght = pomodoroFactory.getLongBreak();

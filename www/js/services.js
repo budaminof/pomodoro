@@ -8,6 +8,7 @@ angular.module('app.services', [])
   var _LongBreak = 10;
   var _pomodoroSession = 4;
   var _allPomodoros;
+  var _session = 4;
 
   return {
     pomodoroName: pomodoroName,
@@ -19,6 +20,7 @@ angular.module('app.services', [])
     getLongBreak: getLongBreak,
     finishedPomdoro: finishedPomdoro,
     getAllPomodoros: getAllPomodoros,
+    getSessions: getSessions
   }
 
   function pomodoroName (name) {
@@ -42,6 +44,10 @@ angular.module('app.services', [])
       return _pomodoroCount = 0;
     }
     return _pomodoroCount++;
+  }
+
+  function getSessions() {
+    return _session;
   }
 
   function getShortBreak(){
