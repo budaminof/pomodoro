@@ -38,7 +38,7 @@ angular.module('app.services', [])
   }
 
   function setPomoforoCount () {
-    if(_pomodoroCount === 4 ) {
+    if ( _pomodoroCount === 4 ) {
       return _pomodoroCount = 0;
     }
     return _pomodoroCount++;
